@@ -1,9 +1,19 @@
 import { test, expect } from '@playwright/test';
 
-import data from '../test-data/demoqa.json';
-import { da } from '@faker-js/faker';
+import qadata from '../test-data/demoqa.json';
+
+import Proddata from '../test-data/Proddemoqa copy.json';
 
 test('Verify TextBox Info', async ({ page }) => {
+
+  let data;
+
+  if(process.env.ENVIRONMENT === "QA"){
+    data = qadata
+
+  }else if(process.env.ENVIRONMENT === "PROD") { 
+    data = Proddata
+  }
   
 await page.goto("https://demoqa.com/text-box")
 await page.locator("input[placeholder='Full Name']").fill(data.UserName);
@@ -13,3 +23,4 @@ await page.locator("textarea#permanentAddress").fill(data.PermenentAddress);
 
   
 }); 
+

@@ -39,9 +39,13 @@ test('verify login with valid credentials_example', async ({ page }) => {
   await page.locator("(//a[@role='menuitem'])[1]").click();
   await page.locator("//button[contains(.,'Add')]").click({ timeout: 60000 });
 
-  await page.locator("(//span[normalize-space(text())='Configuration']/following::input)[1]").fill(faker.person.jobTitle());
+  const randomchars = (Math.random() + 1).toString(36).substring(7);
+
+  const jobTitle = "Software" + randomchars;
+
+  await page.locator("(//span[normalize-space(text())='Configuration']/following::input)[1]").fill(jobTitle);
   await page.locator("(//textarea[contains(@class,'oxd-textarea oxd-textarea--active')])[1]").fill(faker.lorem.paragraph());
-  await page.locator("//textarea[@placeholder='Add note']").fill(faker.lorem.sentence());
+  await page.locator("//textarea[@placeholder='Add note']").fill(randomchars);
 
   await page.locator("button[type='submit']").click();
 
