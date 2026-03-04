@@ -29,3 +29,4 @@ console.log(Add(3, 5));
 // () => console.log(" ");   // anonymous function  = no function name
 
 (name) => console.log("Hi " + name); // cannot call an anonymous function (as it doesnt have a function name to call)
+

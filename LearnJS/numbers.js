@@ -43,7 +43,7 @@ y = Math.round(39.5); // 39.0 - 39.4 => 39, // 39.5 - 39.9 => 40 ( basically rou
 
 console.log(y);
 
-z = Math.floor(22.4);
+z = Math.floor(22.9); // trunc and floor are same, but acts different when given negative value
 
 console.log(z);
 
@@ -66,4 +66,11 @@ arr = [23, 43, 56, 14, 94];
 console.log(Math.max(...arr)); // ...arr => it gives all elements inside Math.max() function
 
 
+// to extract numbers from strings
 
+let str1 = "string123";
+let result1 = str1.match(/\d+/);
+
+console.log(result1);
+
+// /\d+/ -> regex method, \d => numbers between 0 to 9
