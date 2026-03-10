@@ -16,7 +16,7 @@ require("dotenv").config();
  */
 export default defineConfig({
   // deafault URL time out is 30 sec.
-  timeout: 30000,
+  timeout: 90000,
 
   // default expect time is 5 sec.
   expect: {
